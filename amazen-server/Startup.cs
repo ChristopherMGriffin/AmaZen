@@ -16,7 +16,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MySqlConnector;
 
-namespace amazen-server
+namespace amazen_server
 {
     public class Startup
     {
