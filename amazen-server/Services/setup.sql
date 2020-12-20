@@ -44,3 +44,7 @@
 --   REFERENCES profiles (id)
 --   ON DELETE CASCADE
 -- )
+
+-- ALTER TABLE  products
+-- ADD COLUMN price DECIMAL(10,2),
+-- ADD COLUMN image VARCHAR(500);
