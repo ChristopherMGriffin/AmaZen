@@ -6,52 +6,52 @@ using amazen_server.Repositories;
 
 namespace amazen_server.Services
 {
-    public class ProductsService
+    public class WishlistsService
     {
-    private readonly ProductsRepository _repo;
+        private readonly WishlistsRepository _repo;
 
-    public ProductsService(ProductsRepository repo)
+    public WishlistsService(WishlistsRepository repo)
         {
             _repo = repo;
         }
 
-    public IEnumerable<Product> Get()
+    public IEnumerable<Wishlist> Get()
     {
       return _repo.Get();
     }
 
-    public Product GetOne(int id)
+    public Wishlist GetOne(int id)
     {
       return _repo.GetOne(id);
     }
 
-    public Product Create(Product newProduct)
+    public Wishlist Create(Wishlist newWishlist)
     {
-      newProduct.Id = _repo.Create(newProduct);
-      return newProduct;
+      newWishlist.Id = _repo.Create(newWishlist);
+      return newWishlist;
     }
 
     public string Delete(int id, string userId)
     {
-      Product product =_repo.GetOne(id);
-      if (product == null)
+      Wishlist Wishlist =_repo.GetOne(id);
+      if (Wishlist == null)
       {
-        throw new Exception("Product not found");
+        throw new Exception("Wishlist not found");
       }
-      if (product.creatorId != userId)
+      if (Wishlist.creatorId != userId)
       {
       throw new Exception("Unauthorized Action");
       }
       if (_repo.Delete(id))
       {
-        return "Deleted Product";
+        return "Deleted Wishlist";
       }
       return "Delete Unsuccessful";
     }
 
-    internal Product Edit(Product product, string userId)
+    internal Wishlist Edit(Wishlist wishlist, string userId)
     {
-      Product original = _repo.GetOne(product.Id);
+      Wishlist original = _repo.GetOne(wishlist.Id);
       if (original == null)
       {
         throw new Exception("Invalid Id");
@@ -60,8 +60,8 @@ namespace amazen_server.Services
       {
         throw new Exception("Unauthorized");
       }
-      _repo.Edit(product);
-      return _repo.GetOne(product.Id);
+      _repo.Edit(wishlist);
+      return _repo.GetOne(wishlist.Id);
     }
-  }
+    }
 }
