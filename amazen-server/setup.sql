@@ -44,3 +44,12 @@
 --   REFERENCES profiles (id)
 --   ON DELETE CASCADE
 -- )
+
+-- ALTER TABLE  products
+-- ADD COLUMN price DECIMAL(10,2),
+-- ADD COLUMN image VARCHAR(500);
+
+-- ALTER TABLE wishlists
+-- drop COLUMN creatorId,
+-- ADD COLUMN creatorId VARCHAR(255)
+-- ADD COLUMN isPublished TINYINT
