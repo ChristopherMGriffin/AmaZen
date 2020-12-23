@@ -1,14 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex flex-column align-items-center">
-        <img
-          alt="logo"
-          src="../assets/img/cw-logo.png"
-          height="45"
-        />
-      </div>
-    </router-link>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <h1>AmaZen</h1>
     <button
       class="navbar-toggler"
       type="button"
@@ -27,15 +19,25 @@
             Home
           </router-link>
         </li>
-        <li class="nav-item">
+        <li v-if="user.isAuthenticated" class="nav-item">
           <router-link :to="{ name: 'About' }" class="nav-link">
-            About
+            Wishlists
+          </router-link>
+        </li>
+        <li v-if="user.isAuthenticated" class="nav-item">
+          <router-link :to="{ name: 'About' }" class="nav-link">
+            Post Items
+          </router-link>
+        </li>
+        <li v-if="user.isAuthenticated" class="nav-item">
+          <router-link :to="{ name: 'Profile' }" class="nav-link">
+            Profile
           </router-link>
         </li>
       </ul>
       <span class="navbar-text">
         <button
-          class="btn btn-outline-primary text-uppercase"
+          class="btn btn-link text-uppercase"
           @click="login"
           v-if="!user.isAuthenticated"
         >
@@ -60,11 +62,11 @@
             :class="{ show: state.dropOpen }"
             @click="state.dropOpen = false"
           >
-            <router-link :to="{ name: 'Profile' }">
+            <!-- <router-link :to="{ name: 'Profile' }">
               <div class="list-group-item list-group-item-action hoverable">
                 Profile
               </div>
-            </router-link>
+            </router-link> -->
             <div
               class="list-group-item list-group-item-action hoverable"
               @click="logout"
