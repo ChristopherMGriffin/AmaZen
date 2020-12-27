@@ -2,7 +2,6 @@ import { initialize } from '@bcwdev/auth0provider-client'
 import { AppState } from '../AppState'
 import { audience, clientId, domain } from '../AuthConfig'
 import router from '../router'
-import { logger } from '../utils/Logger'
 import { setBearer } from './AxiosService'
 import { profileService } from './ProfileService'
 
@@ -23,6 +22,5 @@ AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, async function() {
   setBearer(AuthService.bearer)
   await profileService.getProfile()
   AppState.user = AuthService.user
-  logger.log(AppState.user)
   // NOTE if there is something you want to do once the user is authenticated, place that here
 })

@@ -13,6 +13,16 @@ class ProductService {
     }
   }
 
+  async deleteProduct(id) {
+    try {
+      const res = await api.delete('api/products/' + id)
+      logger.log(res)
+      this.getAll()
+    } catch (e) {
+      logger.log(e)
+    }
+  }
+
   async getAll() {
     try {
       const res = await api.get('api/products')

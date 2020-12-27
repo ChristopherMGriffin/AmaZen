@@ -1,9 +1,9 @@
 <template>
   <div class="home flex-grow-1 d-flex align-items-center container">
     <div class="row">
-      <div class="col-12">
-      </div>
-      <div class="row">
+      <!-- NOTE   Formage -->
+
+      <!-- <div class="row">
         <form class="" @submit.prevent="create()">
           <div class="form-group">
             <label for="exampleFormControlInput1">Product Title</label>
@@ -31,9 +31,13 @@
             </button>
           </div>
         </form>
-      </div>
-      <div class="card-columns">
-        <Product v-for="p in products" :key="p.id" :pprop="p" />
+      </div> -->
+
+      <!-- NOTE  Formage -->
+      <div class="m-5">
+        <div class="card-columns">
+          <Product v-for="p in products" :key="p.id" :pprop="p" />
+        </div>
       </div>
     </div>
   </div>

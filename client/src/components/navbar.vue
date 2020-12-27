@@ -20,12 +20,12 @@
           </router-link>
         </li>
         <li v-if="user.isAuthenticated" class="nav-item">
-          <router-link :to="{ name: 'About' }" class="nav-link">
+          <router-link :to="{ name: 'Wishlists' }" class="nav-link">
             Wishlists
           </router-link>
         </li>
         <li v-if="user.isAuthenticated" class="nav-item">
-          <router-link :to="{ name: 'About' }" class="nav-link">
+          <router-link :to="{ name: 'PostProducts' }" class="nav-link">
             Post Items
           </router-link>
         </li>

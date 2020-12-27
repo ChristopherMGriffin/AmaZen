@@ -12,9 +12,23 @@ const routes = [
     component: loadPage('HomePage')
   },
   {
-    path: '/about',
-    name: 'About',
-    component: loadPage('AboutPage')
+    path: '/wishlists',
+    name: 'Wishlists',
+    component: loadPage('WishlistPage'),
+    beforeEnter: authGuard
+
+  },
+  {
+    path: '/newproducts',
+    name: 'PostProducts',
+    component: loadPage('PostProductsPage'),
+    beforeEnter: authGuard
+
+  },
+  {
+    path: '/products/:productId',
+    name: 'ActiveProductPage',
+    component: loadPage('ActiveProductPage')
   },
   {
     path: '/profile',
