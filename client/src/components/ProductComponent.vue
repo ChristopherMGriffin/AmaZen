@@ -1,9 +1,11 @@
 <template>
-  <div class="product card">
-    <div>
-      <router-link :to="{ name: 'ActiveProductPage', params: {productId: pprop.id} }">
-        <img class="card-img-top" :src="pprop.image" alt="Card image cap">
-        <div class="card-body">
+  <div class="p-2 product col-3">
+    <router-link :to="{ name: 'ActiveProductPage', params: {productId: pprop.id} }">
+      <img class="rounded shadow shadow image-fluid card-img-top image-fluid" style="width: 250px; height: 250px" :src="pprop.image" alt="Card image cap">
+    </router-link>
+  </div>
+  <!-- <div> -->
+  <!-- <div class="card-body">
           <h5 class="card-title">
             {{ pprop.title }}
           </h5>
@@ -27,8 +29,7 @@
           Delete
         </button>
       </div>
-    </div>
-  </div>
+    </div> -->
 </template>
 
 <script>

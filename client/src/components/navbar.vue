@@ -1,6 +1,55 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <h1>AmaZen</h1>
+  <div>
+    <nav class="navbar sticky navbar-light text-light btn-bg p-0">
+      <div class="col-6">
+        <h4>AmaZen</h4>
+      </div>
+      <div class="col-2 p d-flex justify-content-end">
+        <button @click="login" v-if="!user.isAuthenticated" class="p-0 btn-bg border-light rounded text-light btn-block btn-sm">
+          Log In
+        </button>
+        <button @click="logout" v-if="user.isAuthenticated" class="p-0 btn-bg border-light rounded text-light btn-block btn-sm">
+          Log Out
+        </button>
+      </div>
+    </nav>
+    <nav class="mb-0">
+      <div class="row bg">
+        <div class="col-3 pl-5">
+          <ul class="bg d-inline-flex mb-0">
+            <li>
+              <router-link :to="{ name: 'Home' }" class="nav-link p-">
+                <h4>
+                  Store
+                </h4>
+              </router-link>
+            </li>
+            <li v-if="user.isAuthenticated">
+              <router-link :to="{ name: 'Profile' }" class="nav-link">
+                <h4>
+                  Profile
+                </h4>
+              </router-link>
+            </li>
+          </ul>
+        </div>
+        <div class="col-6">
+          <div class="input-group mt-2">
+            <!-- <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+            </div> -->
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+          </div>
+        </div>
+        <div class="pl-4 col-2 mt-2 d-flex mb-2">
+          <button @click="logout" v-if="user.isAuthenticated" class="btn-bg border-light rounded text-light btn-block pb-1">
+          post product
+        </button>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!--
     <button
       class="navbar-toggler"
       type="button"
@@ -62,12 +111,12 @@
             :class="{ show: state.dropOpen }"
             @click="state.dropOpen = false"
           >
-            <!-- <router-link :to="{ name: 'Profile' }">
+           <router-link :to="{ name: 'Profile' }"
               <div class="list-group-item list-group-item-action hoverable">
                 Profile
               </div>
-            </router-link> -->
-            <div
+            </router-link>
+           <div
               class="list-group-item list-group-item-action hoverable"
               @click="logout"
             >
@@ -76,8 +125,7 @@
           </div>
         </div>
       </span>
-    </div>
-  </nav>
+    </div> -->
 </template>
 
 <script>
@@ -122,8 +170,23 @@ a:hover {
 }
 .nav-link{
   text-transform: uppercase;
+  color: #f2f2f2;
+
 }
 .nav-item .nav-link.router-link-exact-active{
-  color: var(--primary);
+  color: var(--dark);
 }
+.navbar {
+  background: #ffc165;
+}
+.btn-bg {
+  background: #ffc165;
+}
+.bg {
+  background: #e09d5f;
+}
+ul {
+    list-style-type: none;
+}
+
 </style>

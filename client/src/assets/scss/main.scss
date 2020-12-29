@@ -20,6 +20,7 @@ main {
   flex-grow: 1;
   display: flex;
   align-items: stretch;
-  border-left: 25px solid #900;
-  border-right: 25px solid #900;
+  border-left: 1.5em solid #6dd3ff;
+  border-right: 1.5em solid #6dd3ff;
+  justify-content: center;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="home flex-grow-1 d-flex align-items-center container">
+  <div class="home flex-grow-1 d-flex align-items-center container container-fluid">
     <div class="row">
       <!-- NOTE   Formage -->
 
@@ -34,10 +34,8 @@
       </div> -->
 
       <!-- NOTE  Formage -->
-      <div class="m-5">
-        <div class="card-columns">
-          <Product v-for="p in products" :key="p.id" :pprop="p" />
-        </div>
+      <div class="row mt-2">
+        <Product v-for="p in products" :key="p.id" :pprop="p" />
       </div>
     </div>
   </div>
@@ -73,9 +71,6 @@ export default {
 .home{
   text-align: center;
   user-select: none;
-  > img{
-    height: 200px;
-    width: 200px;
-  }
 }
+
 </style>
