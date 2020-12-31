@@ -3,7 +3,7 @@
     <Navbar />
   </header>
   <main>
-    <body>
+    <body class="container-fluid">
       <router-view v-slot="{Component}">
         <transition name="route" mode="out-in">
           <component :is="Component" />

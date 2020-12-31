@@ -63,5 +63,10 @@ namespace amazen_server.Services
       _repo.Edit(wishlist);
       return _repo.GetOne(wishlist.Id);
     }
+
+    internal object GetWishlistsByProfile(string profileId)
+    {
+      return _repo.GetWishlistsByProfile(profileId);
     }
+  }
 }

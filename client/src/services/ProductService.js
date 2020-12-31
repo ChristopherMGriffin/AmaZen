@@ -27,7 +27,16 @@ class ProductService {
     try {
       const res = await api.get('api/products')
       AppState.products = res.data
-      logger.log(AppState.products)
+      logger.log('products', AppState.products)
+    } catch (e) {
+      logger.log(e)
+    }
+  }
+
+  async getOne(id) {
+    try {
+      const res = await api.get('api/products/' + id)
+      AppState.activeProduct = res.data
     } catch (e) {
       logger.log(e)
     }

@@ -54,5 +54,12 @@ namespace amazen_server.Services
      Where id = @Id;";
       _db.Execute(sql, wishlist);
     }
+
+    internal IEnumerable<Wishlist> GetWishlistsByProfile(string profileId)
+    {
+      string sql = "SELECT * FROM wishlists WHERE " + "'" + profileId + "'" + " = creatorId";
+      return (List<Wishlist>)_db.Query(sql, new { profileId });
+      throw new NotImplementedException();
+    }
   }
 }

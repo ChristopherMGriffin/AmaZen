@@ -17,34 +17,49 @@
       <div class="row bg">
         <div class="col-3 pl-5">
           <ul class="bg d-inline-flex mb-0">
-            <li>
-              <router-link :to="{ name: 'Home' }" class="nav-link p-">
-                <h4>
-                  Store
-                </h4>
-              </router-link>
-            </li>
-            <li v-if="user.isAuthenticated">
-              <router-link :to="{ name: 'Profile' }" class="nav-link">
-                <h4>
-                  Profile
-                </h4>
-              </router-link>
-            </li>
+            <div v-show="$route.fullPath != '/'">
+              <li>
+                <router-link :to="{ name: 'Home' }" class="nav-link p-">
+                  <h4>
+                    Store
+                  </h4>
+                </router-link>
+              </li>
+            </div>
+            <div v-show="$route.fullPath !='/profile'">
+              <li v-if="user.isAuthenticated">
+                <router-link :to="{ name: 'Profile' }" class="nav-link">
+                  <h4>
+                    Profile
+                  </h4>
+                </router-link>
+              </li>
+            </div>
+            <div v-show="$route.fullPath !='/wishlists'">
+              <li v-if="user.isAuthenticated">
+                <router-link :to="{ name: 'Wishlists' }" class="nav-link">
+                  <h4>
+                    Wishlists
+                  </h4>
+                </router-link>
+              </li>
+            </div>
           </ul>
         </div>
-        <div class="col-6">
-          <div class="input-group mt-2">
+        <div class="col-6 mb-2">
+          <div v-if="$route.fullPath == '/'" class="input-group mt-2">
             <!-- <div class="input-group-prepend">
               <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
             </div> -->
             <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
           </div>
         </div>
-        <div class="pl-4 col-2 mt-2 d-flex mb-2">
-          <button @click="logout" v-if="user.isAuthenticated" class="btn-bg border-light rounded text-light btn-block pb-1">
-          post product
-        </button>
+        <div v-if="$route.fullPath == '/'" class="pl-4 col-3 mt-2 d-flex mb-2">
+          <router-link :to="{ name: 'PostProducts' }" class="">
+            <button v-if="user.isAuthenticated" class="ml-2 btn-bg border-light rounded text-light btn-block pb-1">
+              Post Product
+            </button>
+          </router-link>
         </div>
       </div>
     </nav>

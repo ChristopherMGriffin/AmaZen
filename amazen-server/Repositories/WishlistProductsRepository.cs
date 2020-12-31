@@ -47,7 +47,7 @@ namespace amazen_server.Repositories
 
     internal WishlistProduct Get(int id)
     {
-      string sql = @"SELECT * from companyblogs WHERE id = @id";
+      string sql = @"SELECT * from wishlistproducts WHERE id = @id";
       return _db.QueryFirstOrDefault<WishlistProduct>(sql, new { id });
     }
   }

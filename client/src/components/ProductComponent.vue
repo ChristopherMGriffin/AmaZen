@@ -1,7 +1,7 @@
 <template>
-  <div class="p-2 product col-3">
+  <div class="product col-sm-6 col-md-4 col-lg-3 mt-2">
     <router-link :to="{ name: 'ActiveProductPage', params: {productId: pprop.id} }">
-      <img class="rounded shadow shadow image-fluid card-img-top image-fluid" style="width: 250px; height: 250px" :src="pprop.image" alt="Card image cap">
+      <img class="img-thumbnail" style="width: 300px; height: 300px" :src="pprop.image" alt="Card image cap">
     </router-link>
   </div>
   <!-- <div> -->
@@ -59,5 +59,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+img * {
+    height: 200px;
+    width: 200px;
+  }
 
 </style>
